@@ -7,11 +7,11 @@ The project was originally released as part of my [MethodInvocationRemoting](htt
 ##### Links
 
 A detailed sample implementation and use case...<br>
-[http://www.oraclepermissiongenerator.net/methodinvocationremoting/sample-application-4.html](http://www.oraclepermissiongenerator.net/methodinvocationremoting/sample-application-4.html)
+[http://www.alastairwyse.net/methodinvocationremoting/sample-application-4.html](http://www.alastairwyse.net/methodinvocationremoting/sample-application-4.html)
 
 Code documentation...<br>
-[http://www.oraclepermissiongenerator.net/methodinvocationremoting/ndoc/~ApplicationLogging.html](http://www.oraclepermissiongenerator.net/methodinvocationremoting/ndoc/~ApplicationLogging.html)
-[http://www.oraclepermissiongenerator.net/methodinvocationremoting/ndoc/~ApplicationLogging.Adapters.html](http://www.oraclepermissiongenerator.net/methodinvocationremoting/ndoc/~ApplicationLogging.Adapters.html)
+[http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.html](http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.html)
+[http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.Adapters.html](http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.Adapters.html)
 
 ##### Notes
 - After opening the solution in Visual Studio, the referenced NuGet packages should be restored using the 'Restore' button in the 'Manage NuGet Packages' window.
