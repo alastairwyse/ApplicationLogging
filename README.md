@@ -10,7 +10,7 @@ A detailed sample implementation and use case...<br>
 [http://www.alastairwyse.net/methodinvocationremoting/sample-application-4.html](http://www.alastairwyse.net/methodinvocationremoting/sample-application-4.html)
 
 Code documentation...<br>
-[http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.html](http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.html)
+[http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.html](http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.html)<br>
 [http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.Adapters.html](http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.Adapters.html)
 
 ##### Notes
