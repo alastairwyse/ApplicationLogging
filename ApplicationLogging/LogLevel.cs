@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Alastair Wyse (http://www.oraclepermissiongenerator.net/methodinvocationremoting/)
+ * Copyright 2014 Alastair Wyse (https://github.com/alastairwyse/ApplicationLogging/)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,11 +18,6 @@ using System;
 
 namespace ApplicationLogging
 {
-    //******************************************************************************
-    //
-    // Enum: LogLevel
-    //
-    //******************************************************************************
     /// <summary>
     /// Represents the level of importance of a log entry or logging event.
     /// </summary>

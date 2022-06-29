@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Alastair Wyse (http://www.oraclepermissiongenerator.net/methodinvocationremoting/)
+ * Copyright 2014 Alastair Wyse (https://github.com/alastairwyse/ApplicationLogging/)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,16 +15,10 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace ApplicationLogging
 {
-    //******************************************************************************
-    //
-    // Class: ApplicationLoggerBase
-    //
-    //******************************************************************************
     /// <summary>
     /// Provides common functionality for application logger implementations.
     /// </summary>
@@ -39,11 +33,6 @@ namespace ApplicationLogging
         /// <summary>A format string to use to format dates and times in the resulting logging information.</summary>
         protected string dateTimeFormat;
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: ApplicationLoggerBase (constructor)
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Initialises a new instance of the ApplicationLogging.ApplicationLoggerBase class.
         /// </summary>
@@ -61,11 +50,6 @@ namespace ApplicationLogging
             }
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: ApplicationLoggerBase (constructor)
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Initialises a new instance of the ApplicationLogging.ApplicationLoggerBase class.
         /// </summary>
@@ -79,11 +63,6 @@ namespace ApplicationLogging
             this.dateTimeFormat = dateTimeFormat;
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: CreateLogEntry
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Creates the text of a log entry.
         /// </summary>
@@ -95,14 +74,10 @@ namespace ApplicationLogging
             StringBuilder stringBuilder = InitializeStringBuilder();
             WriteLogLevel(level, stringBuilder);
             stringBuilder.Append(text);
+
             return stringBuilder;
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: CreateLogEntry
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Creates the text of a log entry.
         /// </summary>
@@ -116,14 +91,10 @@ namespace ApplicationLogging
             WriteSource(source, stringBuilder);
             WriteLogLevel(level, stringBuilder);
             stringBuilder.Append(text);
+
             return stringBuilder;
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: CreateLogEntry
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Creates the text of a log entry.
         /// </summary>
@@ -137,14 +108,10 @@ namespace ApplicationLogging
             WriteEventIdentifier(eventIdentifier, stringBuilder);
             WriteLogLevel(level, stringBuilder);
             stringBuilder.Append(text);
+
             return stringBuilder;
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: CreateLogEntry
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Creates the text of a log entry.
         /// </summary>
@@ -160,14 +127,10 @@ namespace ApplicationLogging
             WriteEventIdentifier(eventIdentifier, stringBuilder);
             WriteLogLevel(level, stringBuilder);
             stringBuilder.Append(text);
+
             return stringBuilder;
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: CreateLogEntry
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Creates the text of a log entry.
         /// </summary>
@@ -181,14 +144,10 @@ namespace ApplicationLogging
             WriteLogLevel(level, stringBuilder);
             stringBuilder.Append(text);
             WriteException(sourceException, stringBuilder);
+
             return stringBuilder;
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: CreateLogEntry
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Creates the text of a log entry.
         /// </summary>
@@ -204,14 +163,10 @@ namespace ApplicationLogging
             WriteLogLevel(level, stringBuilder);
             stringBuilder.Append(text);
             WriteException(sourceException, stringBuilder);
+
             return stringBuilder;
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: CreateLogEntry
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Creates the text of a log entry.
         /// </summary>
@@ -227,14 +182,10 @@ namespace ApplicationLogging
             WriteLogLevel(level, stringBuilder);
             stringBuilder.Append(text);
             WriteException(sourceException, stringBuilder);
+
             return stringBuilder;
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: CreateLogEntry
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Creates the text of a log entry.
         /// </summary>
@@ -252,14 +203,10 @@ namespace ApplicationLogging
             WriteLogLevel(level, stringBuilder);
             stringBuilder.Append(text);
             WriteException(sourceException, stringBuilder);
+
             return stringBuilder;
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: InitializeStringBuilder
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Creates and returns a StringBuilder class, with the current timestamp written to it.
         /// </summary>
@@ -271,14 +218,10 @@ namespace ApplicationLogging
             returnStringBuilder.Append(" ");
             returnStringBuilder.Append(separatorCharacter);
             returnStringBuilder.Append(" ");
+
             return returnStringBuilder;
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: WriteSource
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Writes the specified log source object to the log entry in the specified string builder.
         /// </summary>
@@ -293,11 +236,6 @@ namespace ApplicationLogging
             stringBuilder.Append(" ");
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: WriteLogLevel
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Writes the specified log level to the log entry in the specified string builder.
         /// </summary>
@@ -324,11 +262,6 @@ namespace ApplicationLogging
             }
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: WriteEventIdentifier
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Writes the specified log event identifier to the log entry in the specified string builder.
         /// </summary>
@@ -343,11 +276,6 @@ namespace ApplicationLogging
             stringBuilder.Append(" ");
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: WriteException
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Writes details of the specified exception to the log entry in the specified string builder.
         /// </summary>

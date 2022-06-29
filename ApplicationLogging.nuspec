@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ApplicationLogging</id>
+    <version>2.0.0</version>
+    <authors>Alastair Wyse</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">Apache-2.0</license>
+    <licenseUrl>https://licenses.nuget.org/Apache-2.0</licenseUrl>
+    <projectUrl>https://github.com/alastairwyse/ApplicationLogging/</projectUrl>
+    <description>ApplicationLogging provides interfaces and classes to allow simple logging from a client application.  The included interface IApplicationLogger can be injected into client classes, and exposes simple methods for capturing detailed logging information from these client classes. The main benefit of ApplicationLogging is to provide an abstraction layer between the client application and the logging framework it uses, meaning that the logging framework can be changed or swapped simply by changing the implementation of interface IApplicationLogger, rather than having to update potentially 1000's of lines of logging statements.</description>
+    <summary>ApplicationLogging provides interfaces and classes to allow simple logging from a client application</summary>
+    <releaseNotes>Migrated to .NET Standard.</releaseNotes>
+    <copyright>Copyright © Alastair Wyse 2022</copyright>
+    <tags>log logging client application abstraction simple</tags>
+    <repository type="git" url="https://github.com/alastairwyse/ApplicationLogging/" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src=".\ApplicationLogging\bin\Release\netstandard2.0\ApplicationLogging.dll" target="lib\netstandard2.0\ApplicationLogging.dll" />
+    <file src=".\ApplicationLogging\bin\Release\netstandard2.0\ApplicationLogging.xml" target="lib\netstandard2.0\ApplicationLogging.xml" />
+  </files>
+</package>

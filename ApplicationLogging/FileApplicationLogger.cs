@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Alastair Wyse (http://www.oraclepermissiongenerator.net/methodinvocationremoting/)
+ * Copyright 2014 Alastair Wyse (https://github.com/alastairwyse/ApplicationLogging/)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,17 +15,10 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.Text;
-using FrameworkAbstraction;
 
 namespace ApplicationLogging
 {
-    //******************************************************************************
-    //
-    // Class: FileApplicationLogger
-    //
-    //******************************************************************************
     /// <summary>
     /// Writes application log events and information to a file.
     /// </summary>
@@ -36,11 +29,6 @@ namespace ApplicationLogging
         private IStreamWriter streamWriter;
         private Encoding fileEncoding = Encoding.UTF8;
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: FileApplicationLogger (constructor)
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Initialises a new instance of the ApplicationLogging.FileApplicationLogger class.
         /// </summary>
@@ -54,11 +42,6 @@ namespace ApplicationLogging
             streamWriter = new StreamWriter(filePath, false, fileEncoding);
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: FileApplicationLogger (constructor)
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Initialises a new instance of the ApplicationLogging.FileApplicationLogger class.
         /// </summary>
@@ -75,11 +58,6 @@ namespace ApplicationLogging
             streamWriter = new StreamWriter(filePath, appendToFile, fileEncoding);
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: FileApplicationLogger (constructor)
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Initialises a new instance of the ApplicationLogging.FileApplicationLogger class.  Note this is an additional constructor to facilitate unit tests, and should not be used to instantiate the class under normal conditions.
         /// </summary>
@@ -176,11 +154,6 @@ namespace ApplicationLogging
             }
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: Close
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Closes the log file.
         /// </summary>
@@ -207,11 +180,6 @@ namespace ApplicationLogging
         }
         #pragma warning restore 1591
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: Dispose
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Provides a method to free unmanaged resources used by this class.
         /// </summary>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Alastair Wyse (http://www.oraclepermissiongenerator.net/methodinvocationremoting/)
+ * Copyright 2014 Alastair Wyse (https://github.com/alastairwyse/ApplicationLogging/)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,63 +17,32 @@
 #pragma warning disable 1591
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 using NUnit.Framework;
-using NMock2;
-using NMock2.Matchers;
-using ApplicationLogging;
-using FrameworkAbstraction;
+using NSubstitute;
 
-namespace ApplicationLoggingUnitTests
+namespace ApplicationLogging.UnitTests
 {
-    //******************************************************************************
-    //
-    // Class: FileApplicationLoggerTests
-    //
-    //******************************************************************************
     /// <summary>
     /// Unit tests for class ApplicationLogging.FileApplicationLogger.
     /// </summary>
     [TestFixture]
     public class FileApplicationLoggerTests
     {
-        private Mockery mocks;
         private IStreamWriter mockStreamWriter;
         private FileApplicationLogger testFileApplicationLogger;
 
         [SetUp]
         protected void SetUp()
         {
-            mocks = new Mockery();
-            mockStreamWriter = mocks.NewMock<IStreamWriter>();
+            mockStreamWriter = Substitute.For<IStreamWriter>();
             testFileApplicationLogger = new FileApplicationLogger(LogLevel.Debug, ':', "  ", mockStreamWriter);
         }
 
         [Test]
         public void LogSuccessTests()
         {
-            string expectedStackTraceText = Environment.NewLine + @"     at ApplicationLoggingUnitTests.LogSuccessTests() in C:\MethodInvocationRemoting\C#\ApplicationLoggingUnitTests\FileApplicationLoggerTests.cs:line 123" + Environment.NewLine + @"     at ApplicationLoggingUnitTests.LogSuccessTests() in C:\MethodInvocationRemoting\C#\ApplicationLoggingUnitTests\FileApplicationLoggerTests.cs:line 456";
+            string expectedStackTraceText = Environment.NewLine + @"     at ApplicationLogging.UnitTests.LogSuccessTests() in C:\Development\C#\ApplicationLogging\ApplicationLogging.UnitTests\FileApplicationLoggerTests.cs:line 123" + Environment.NewLine + @"     at ApplicationLoggingUnitTests.LogSuccessTests() in C:\Development\C#\ApplicationLogging\ApplicationLogging.UnitTests\FileApplicationLoggerTests.cs:line 456";
 
-            using (mocks.Ordered)
-            {
-                Expect.Once.On(mockStreamWriter).Method("WriteLine").With(new StringContainsMatcher(" CRITICAL : Log Text 1."));
-                Expect.Once.On(mockStreamWriter).Method("Flush").WithNoArguments();
-                Expect.Once.On(mockStreamWriter).Method("WriteLine").With(new StringContainsMatcher(" Log Event Id = 123 : ERROR : Log Text 2."));
-                Expect.Once.On(mockStreamWriter).Method("Flush").WithNoArguments();
-                Expect.Once.On(mockStreamWriter).Method("WriteLine").With(new StringContainsMatcher(" WARNING : Log Text 3." + Environment.NewLine + "  ApplicationLoggingUnitTests.CustomStackTraceException: Mocked Exception." + expectedStackTraceText));
-                Expect.Once.On(mockStreamWriter).Method("Flush").WithNoArguments();
-                Expect.Once.On(mockStreamWriter).Method("WriteLine").With(new StringContainsMatcher(" Log Event Id = 124 : Log Text 4." + Environment.NewLine + "  ApplicationLoggingUnitTests.CustomStackTraceException: Mocked Exception 2." + expectedStackTraceText));
-                Expect.Once.On(mockStreamWriter).Method("Flush").WithNoArguments();
-                Expect.Once.On(mockStreamWriter).Method("WriteLine").With(new StringContainsMatcher(" Source = FileApplicationLoggerTests : CRITICAL : Log Text 5."));
-                Expect.Once.On(mockStreamWriter).Method("Flush").WithNoArguments();
-                Expect.Once.On(mockStreamWriter).Method("WriteLine").With(new StringContainsMatcher(" Source = FileApplicationLoggerTests : Log Event Id = 123 : ERROR : Log Text 6."));
-                Expect.Once.On(mockStreamWriter).Method("Flush").WithNoArguments();
-                Expect.Once.On(mockStreamWriter).Method("WriteLine").With(new StringContainsMatcher(" Source = FileApplicationLoggerTests : WARNING : Log Text 7." + Environment.NewLine + "  ApplicationLoggingUnitTests.CustomStackTraceException: Mocked Exception 3." + expectedStackTraceText));
-                Expect.Once.On(mockStreamWriter).Method("Flush").WithNoArguments();
-                Expect.Once.On(mockStreamWriter).Method("WriteLine").With(new StringContainsMatcher(" Source = FileApplicationLoggerTests : Log Event Id = 124 : Log Text 8." + Environment.NewLine + "  ApplicationLoggingUnitTests.CustomStackTraceException: Mocked Exception 4." + expectedStackTraceText));
-                Expect.Once.On(mockStreamWriter).Method("Flush").WithNoArguments();
-            }
             testFileApplicationLogger.Log(LogLevel.Critical, "Log Text 1.");
             testFileApplicationLogger.Log(123, LogLevel.Error, "Log Text 2.");
             testFileApplicationLogger.Log(LogLevel.Warning, "Log Text 3.", new CustomStackTraceException("Mocked Exception."));
@@ -83,15 +52,31 @@ namespace ApplicationLoggingUnitTests
             testFileApplicationLogger.Log(this, LogLevel.Warning, "Log Text 7.", new CustomStackTraceException("Mocked Exception 3."));
             testFileApplicationLogger.Log(this, 124, LogLevel.Information, "Log Text 8.", new CustomStackTraceException("Mocked Exception 4."));
 
-            mocks.VerifyAllExpectationsHaveBeenMet();
+            Received.InOrder(() =>
+            {
+                mockStreamWriter.Received(1).WriteLine(Arg.Is<string>(value => value.Contains(" CRITICAL : Log Text 1.")));
+                mockStreamWriter.Received(1).Flush();
+                mockStreamWriter.Received(1).WriteLine(Arg.Is<string>(value => value.Contains(" Log Event Id = 123 : ERROR : Log Text 2.")));
+                mockStreamWriter.Received(1).Flush();
+                mockStreamWriter.Received(1).WriteLine(Arg.Is<string>(value => value.Contains(" WARNING : Log Text 3." + Environment.NewLine + "  ApplicationLogging.UnitTests.CustomStackTraceException: Mocked Exception." + expectedStackTraceText)));
+                mockStreamWriter.Received(1).Flush();
+                mockStreamWriter.Received(1).WriteLine(Arg.Is<string>(value => value.Contains(" Log Event Id = 124 : Log Text 4." + Environment.NewLine + "  ApplicationLogging.UnitTests.CustomStackTraceException: Mocked Exception 2." + expectedStackTraceText)));
+                mockStreamWriter.Received(1).Flush();
+                mockStreamWriter.Received(1).WriteLine(Arg.Is<string>(value => value.Contains(" Source = FileApplicationLoggerTests : CRITICAL : Log Text 5.")));
+                mockStreamWriter.Received(1).Flush();
+                mockStreamWriter.Received(1).WriteLine(Arg.Is<string>(value => value.Contains(" Source = FileApplicationLoggerTests : Log Event Id = 123 : ERROR : Log Text 6.")));
+                mockStreamWriter.Received(1).Flush();
+                mockStreamWriter.Received(1).WriteLine(Arg.Is<string>(value => value.Contains(" Source = FileApplicationLoggerTests : WARNING : Log Text 7." + Environment.NewLine + "  ApplicationLogging.UnitTests.CustomStackTraceException: Mocked Exception 3." + expectedStackTraceText)));
+                mockStreamWriter.Received(1).Flush();
+                mockStreamWriter.Received(1).WriteLine(Arg.Is<string>(value => value.Contains(" Source = FileApplicationLoggerTests : Log Event Id = 124 : Log Text 8." + Environment.NewLine + "  ApplicationLogging.UnitTests.CustomStackTraceException: Mocked Exception 4." + expectedStackTraceText)));
+                mockStreamWriter.Received(1).Flush();
+            });
         }
 
         [Test]
         public void LogBelowMinimumLogLevelNotLogged()
         {
             testFileApplicationLogger = new FileApplicationLogger(LogLevel.Warning, ':', "  ", mockStreamWriter);
-
-            Expect.Never.On(mockStreamWriter);
 
             testFileApplicationLogger.Log(LogLevel.Information, "Log Text 1.");
             testFileApplicationLogger.Log(123, LogLevel.Information, "Log Text 2.");
@@ -109,19 +94,17 @@ namespace ApplicationLoggingUnitTests
             testFileApplicationLogger.Log(this, 123, LogLevel.Debug, "Log Text 6.");
             testFileApplicationLogger.Log(this, LogLevel.Debug, "Log Text 7.", new CustomStackTraceException("Mocked Exception 3."));
             testFileApplicationLogger.Log(this, 124, LogLevel.Debug, "Log Text 8.", new CustomStackTraceException("Mocked Exception 4."));
-            mocks.VerifyAllExpectationsHaveBeenMet();
+
+            mockStreamWriter.DidNotReceiveWithAnyArgs().WriteLine(default);
+            mockStreamWriter.DidNotReceiveWithAnyArgs().Flush();
         }
 
         [Test]
         public void CloseSuccessTest()
         {
-            using (mocks.Ordered)
-            {
-                Expect.Once.On(mockStreamWriter).Method("Close").WithNoArguments();
-            }
-
             testFileApplicationLogger.Close();
-            mocks.VerifyAllExpectationsHaveBeenMet();
+
+            mockStreamWriter.Received(1).Close();
         }
     }
 }

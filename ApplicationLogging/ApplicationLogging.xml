@@ -1,0 +1,435 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApplicationLogging</name>
+    </assembly>
+    <members>
+        <member name="T:ApplicationLogging.ApplicationLoggerBase">
+            <summary>
+            Provides common functionality for application logger implementations.
+            </summary>
+        </member>
+        <member name="F:ApplicationLogging.ApplicationLoggerBase.minimumLogLevel">
+            <summary>The minimum level of log entries to write to the console.  Log entries with a level of importance lower than this will not be written.</summary>
+        </member>
+        <member name="F:ApplicationLogging.ApplicationLoggerBase.separatorCharacter">
+            <summary>The character to use to separate fields (e.g. date/time stamp, log level, log text) in the log entry.</summary>
+        </member>
+        <member name="F:ApplicationLogging.ApplicationLoggerBase.indentString">
+            <summary>The string to use for indentation (e.g. of an exception stack trace) in the log entry.</summary>
+        </member>
+        <member name="F:ApplicationLogging.ApplicationLoggerBase.dateTimeFormat">
+            <summary>A format string to use to format dates and times in the resulting logging information.</summary>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.#ctor(ApplicationLogging.LogLevel,System.Char,System.String)">
+            <summary>
+            Initialises a new instance of the ApplicationLogging.ApplicationLoggerBase class.
+            </summary>
+            <param name="minimumLogLevel">The minimum level of log entries to write to the console.  Log entries with a level of importance lower than this parameter will not be written.</param>
+            <param name="separatorCharacter">The character to use to separate fields (e.g. date/time stamp, log level, log text) in the log entry.</param>
+            <param name="indentString">The string to use for indentation (e.g. of an exception stack trace) in the log entry.</param>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.#ctor(ApplicationLogging.LogLevel,System.Char,System.String,System.String)">
+            <summary>
+            Initialises a new instance of the ApplicationLogging.ApplicationLoggerBase class.
+            </summary>
+            <param name="minimumLogLevel">The minimum level of log entries to write to the console.  Log entries with a level of importance lower than this parameter will not be written.</param>
+            <param name="separatorCharacter">The character to use to separate fields (e.g. date/time stamp, log level, log text) in the log entry.</param>
+            <param name="indentString">The string to use for indentation (e.g. of an exception stack trace) in the log entry.</param>
+            <param name="dateTimeFormat">A format string to use to format dates and times in the resulting logging information.</param>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.CreateLogEntry(ApplicationLogging.LogLevel,System.String)">
+            <summary>
+            Creates the text of a log entry.
+            </summary>
+            <param name="level">The level of importance of the log event.</param>
+            <param name="text">The details of the log event.</param>
+            <returns>A string builder containing the log entry.</returns>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.CreateLogEntry(System.Object,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+            Creates the text of a log entry.
+            </summary>
+            <param name="source">The exception which caused the log event.</param>
+            <param name="level">The level of importance of the log event.</param>
+            <param name="text">The details of the log event.</param>
+            <returns>A string builder containing the log entry.</returns>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.CreateLogEntry(System.Int32,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+            Creates the text of a log entry.
+            </summary>
+            <param name="eventIdentifier">An ID number which uniquely identifies the log event.</param>
+            <param name="level">The level of importance of the log event.</param>
+            <param name="text">The details of the log event.</param>
+            <returns>A string builder containing the log entry.</returns>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.CreateLogEntry(System.Object,System.Int32,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+            Creates the text of a log entry.
+            </summary>
+            <param name="source">The exception which caused the log event.</param>
+            <param name="eventIdentifier">An ID number which uniquely identifies the log event.</param>
+            <param name="level">The level of importance of the log event.</param>
+            <param name="text">The details of the log event.</param>
+            <returns>A string builder containing the log entry.</returns>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.CreateLogEntry(ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+            Creates the text of a log entry.
+            </summary>
+            <param name="level">The level of importance of the log event.</param>
+            <param name="text">The details of the log event.</param>
+            <param name="sourceException">The exception which caused the log event.</param>
+            <returns>A string builder containing the log entry.</returns>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.CreateLogEntry(System.Object,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+            Creates the text of a log entry.
+            </summary>
+            <param name="source">The exception which caused the log event.</param>
+            <param name="level">The level of importance of the log event.</param>
+            <param name="text">The details of the log event.</param>
+            <param name="sourceException">The exception which caused the log event.</param>
+            <returns>A string builder containing the log entry.</returns>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.CreateLogEntry(System.Int32,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+            Creates the text of a log entry.
+            </summary>
+            <param name="eventIdentifier">An ID number which uniquely identifies the log event.</param>
+            <param name="level">The level of importance of the log event.</param>
+            <param name="text">The details of the log event.</param>
+            <param name="sourceException">The exception which caused the log event.</param>
+            <returns>A string builder containing the log entry.</returns>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.CreateLogEntry(System.Object,System.Int32,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+            Creates the text of a log entry.
+            </summary>
+            <param name="source">The exception which caused the log event.</param>
+            <param name="eventIdentifier">An ID number which uniquely identifies the log event.</param>
+            <param name="level">The level of importance of the log event.</param>
+            <param name="text">The details of the log event.</param>
+            <param name="sourceException">The exception which caused the log event.</param>
+            <returns>A string builder containing the log entry.</returns>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.InitializeStringBuilder">
+            <summary>
+            Creates and returns a StringBuilder class, with the current timestamp written to it.
+            </summary>
+            <returns>The initialized string builder.</returns>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.WriteSource(System.Object,System.Text.StringBuilder)">
+            <summary>
+            Writes the specified log source object to the log entry in the specified string builder.
+            </summary>
+            <param name="source">The object which created the log entry.</param>
+            <param name="stringBuilder">The string builder to write information about the source object to.</param>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.WriteLogLevel(ApplicationLogging.LogLevel,System.Text.StringBuilder)">
+            <summary>
+            Writes the specified log level to the log entry in the specified string builder.
+            </summary>
+            <param name="level">The log level to write.</param>
+            <param name="stringBuilder">The string builder to write the log level to.</param>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.WriteEventIdentifier(System.Int32,System.Text.StringBuilder)">
+            <summary>
+            Writes the specified log event identifier to the log entry in the specified string builder.
+            </summary>
+            <param name="eventIdentifier">The log event identifier to write.</param>
+            <param name="stringBuilder">The string builder to write the log event identifier to.</param>
+        </member>
+        <member name="M:ApplicationLogging.ApplicationLoggerBase.WriteException(System.Exception,System.Text.StringBuilder)">
+            <summary>
+            Writes details of the specified exception to the log entry in the specified string builder.
+            </summary>
+            <param name="e">The exception to write the details of.</param>
+            <param name="stringBuilder">The string builder to write the exception details to.</param>
+        </member>
+        <member name="T:ApplicationLogging.ConsoleApplicationLogger">
+            <summary>
+            Writes application log events and information to the console (standard output).
+            </summary>
+        </member>
+        <member name="M:ApplicationLogging.ConsoleApplicationLogger.#ctor(ApplicationLogging.LogLevel,System.Char,System.String)">
+            <summary>
+            Initialises a new instance of the ApplicationLogging.ConsoleApplicationLogger class.
+            </summary>
+            <param name="minimumLogLevel">The minimum level of log entries to write to the console.  Log entries with a level of importance lower than this parameter will not be written.</param>
+            <param name="separatorCharacter">The character to use to separate fields (e.g. date/time stamp, log level, log text) in the log entry.</param>
+            <param name="indentString">The string to use for indentation (e.g. of an exception stack trace) in the log entry.</param>
+        </member>
+        <member name="M:ApplicationLogging.ConsoleApplicationLogger.#ctor(ApplicationLogging.LogLevel,System.Char,System.String,System.String)">
+            <summary>
+            Initialises a new instance of the ApplicationLogging.ConsoleApplicationLogger class.
+            </summary>
+            <param name="minimumLogLevel">The minimum level of log entries to write to the console.  Log entries with a level of importance lower than this parameter will not be written.</param>
+            <param name="separatorCharacter">The character to use to separate fields (e.g. date/time stamp, log level, log text) in the log entry.</param>
+            <param name="indentString">The string to use for indentation (e.g. of an exception stack trace) in the log entry.</param>
+            <param name="dateTimeFormat">A format string to use to format dates and times in the resulting logging information.</param>
+        </member>
+        <member name="M:ApplicationLogging.ConsoleApplicationLogger.Log(ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.ConsoleApplicationLogger.Log(System.Object,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.ConsoleApplicationLogger.Log(System.Int32,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.ConsoleApplicationLogger.Log(System.Object,System.Int32,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.ConsoleApplicationLogger.Log(ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.ConsoleApplicationLogger.Log(System.Object,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.ConsoleApplicationLogger.Log(System.Int32,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.ConsoleApplicationLogger.Log(System.Object,System.Int32,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="T:ApplicationLogging.FileApplicationLogger">
+            <summary>
+            Writes application log events and information to a file.
+            </summary>
+        </member>
+        <member name="F:ApplicationLogging.FileApplicationLogger.disposed">
+            <summary>Indicates whether the object has been disposed.</summary>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.#ctor(ApplicationLogging.LogLevel,System.Char,System.String,System.String)">
+            <summary>
+            Initialises a new instance of the ApplicationLogging.FileApplicationLogger class.
+            </summary>
+            <param name="minimumLogLevel">The minimum level of log entries to write to the console.  Log entries with a level of importance lower than this parameter will not be written.</param>
+            <param name="separatorCharacter">The character to use to separate fields (e.g. date/time stamp, log level, log text) in the log entry.</param>
+            <param name="indentString">The string to use for indentation (e.g. of an exception stack trace) in the log entry.</param>
+            <param name="filePath">The full path of the file to write the log entries to.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.#ctor(ApplicationLogging.LogLevel,System.Char,System.String,System.String,System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+            Initialises a new instance of the ApplicationLogging.FileApplicationLogger class.
+            </summary>
+            <param name="minimumLogLevel">The minimum level of log entries to write to the console.  Log entries with a level of importance lower than this parameter will not be written.</param>
+            <param name="separatorCharacter">The character to use to separate fields (e.g. date/time stamp, log level, log text) in the log entry.</param>
+            <param name="indentString">The string to use for indentation (e.g. of an exception stack trace) in the log entry.</param>
+            <param name="dateTimeFormat">A format string to use to format dates and times in the resulting logging information.</param>
+            <param name="filePath">The full path of the file to write the log entries to.</param>
+            <param name="appendToFile">Whether to append to an existing log file (if it exists) or overwrite.  A value of true causes appending.</param>
+            <param name="fileEncoding">The character encoding to use in the log file.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.#ctor(ApplicationLogging.LogLevel,System.Char,System.String,ApplicationLogging.IStreamWriter)">
+            <summary>
+            Initialises a new instance of the ApplicationLogging.FileApplicationLogger class.  Note this is an additional constructor to facilitate unit tests, and should not be used to instantiate the class under normal conditions.
+            </summary>
+            <param name="minimumLogLevel">The minimum level of log entries to write to the console.  Log entries with a level of importance lower than this parameter will not be written.</param>
+            <param name="separatorCharacter">The character to use to separate fields (e.g. date/time stamp, log level, log text) in the log entry.</param>
+            <param name="indentString">The string to use for indentation (e.g. of an exception stack trace) in the log entry.</param>
+            <param name="streamWriter">A test (mock) stream writer.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Log(ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Log(System.Object,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Log(System.Int32,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Log(System.Object,System.Int32,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Log(ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Log(System.Object,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Log(System.Int32,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Log(System.Object,System.Int32,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Close">
+            <summary>
+            Closes the log file.
+            </summary>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Dispose">
+            <summary>
+            Releases the unmanaged resources used by the FileApplicationLogger.
+            </summary>
+        </member>
+        <member name="M:ApplicationLogging.FileApplicationLogger.Dispose(System.Boolean)">
+            <summary>
+            Provides a method to free unmanaged resources used by this class.
+            </summary>
+            <param name="disposing">Whether the method is being called as part of an explicit Dispose routine, and hence whether managed resources should also be freed.</param>
+        </member>
+        <member name="T:ApplicationLogging.IApplicationLogger">
+            <summary>
+        Defines methods to record log events and information about an application (e.g. operational information, status, error/exception information, debug, etc...).
+      </summary>
+        </member>
+        <member name="M:ApplicationLogging.IApplicationLogger.Log(ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.IApplicationLogger.Log(System.Object,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.IApplicationLogger.Log(System.Int32,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.IApplicationLogger.Log(System.Object,System.Int32,ApplicationLogging.LogLevel,System.String)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.IApplicationLogger.Log(ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.IApplicationLogger.Log(System.Object,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.IApplicationLogger.Log(System.Int32,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="M:ApplicationLogging.IApplicationLogger.Log(System.Object,System.Int32,ApplicationLogging.LogLevel,System.String,System.Exception)">
+            <summary>
+        Writes the log information.
+      </summary><param name="source">The object which created the log event.</param><param name="eventIdentifier">An ID number which uniquely identifies the log event.</param><param name="level">The level of importance of the log event.</param><param name="text">The details of the log event.</param><param name="sourceException">The exception which caused the log event.</param>
+        </member>
+        <member name="T:ApplicationLogging.IStreamWriter">
+            <summary>
+        Provides an abstraction of the System.IO.StreamWriter class, to facilitate mocking and unit testing.
+      </summary>
+        </member>
+        <member name="M:ApplicationLogging.IStreamWriter.Close">
+            <summary>
+        Closes the current StreamWriter object and the underlying stream.
+      </summary>
+        </member>
+        <member name="M:ApplicationLogging.IStreamWriter.Flush">
+            <summary>
+        Clears all buffers for the current writer and causes any buffered data to be written to the underlying stream.
+      </summary>
+        </member>
+        <member name="M:ApplicationLogging.IStreamWriter.WriteLine(System.String)">
+            <summary>
+        Writes a string followed by a line terminator to the text string or stream.
+      </summary><param name="value">The string to write. If value is null, only the line terminator is written. </param>
+        </member>
+        <member name="T:ApplicationLogging.LogLevel">
+            <summary>
+            Represents the level of importance of a log entry or logging event.
+            </summary>
+        </member>
+        <member name="F:ApplicationLogging.LogLevel.Critical">
+            <summary>A logging event which results from a critical error in the application.  Typically the error cannot be recovered from, and causes termination of the application.</summary>
+        </member>
+        <member name="F:ApplicationLogging.LogLevel.Error">
+            <summary>A logging event which results from a serious error in the application, from which recovery may be possible, but potentially causing loss of data or data inconsistency.</summary>
+        </member>
+        <member name="F:ApplicationLogging.LogLevel.Warning">
+            <summary>A logging event which results from an error in the application which administrative or supporting staff should be notified of.</summary>
+        </member>
+        <member name="F:ApplicationLogging.LogLevel.Information">
+            <summary>A logging event which describes a high level operation performed by a class or component.</summary>
+        </member>
+        <member name="F:ApplicationLogging.LogLevel.Debug">
+            <summary>A logging event which describes granular details of an operation performed by a class or component.</summary>
+        </member>
+        <member name="T:ApplicationLogging.StreamWriter">
+            <summary>
+            Provides an abstraction of the System.IO.StreamWriter class, to facilitate mocking and unit testing.
+            </summary>
+        </member>
+        <member name="F:ApplicationLogging.StreamWriter.disposed">
+            <summary>Indicates whether the object has been disposed.</summary>
+        </member>
+        <member name="M:ApplicationLogging.StreamWriter.#ctor(System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+            Initialises a new instance of the ApplicationLogging.StreamWriter class.
+            </summary>
+            <param name="path">The complete file path to write to.</param>
+            <param name="append">true to append data to the file; false to overwrite the file. If the specified file does not exist, this parameter has no effect, and the constructor creates a new file.</param>
+            <param name="encoding">The character encoding to use.</param>
+        </member>
+        <member name="M:ApplicationLogging.StreamWriter.Close">
+            <summary>
+        Closes the current StreamWriter object and the underlying stream.
+      </summary>
+        </member>
+        <member name="M:ApplicationLogging.StreamWriter.Flush">
+            <summary>
+        Clears all buffers for the current writer and causes any buffered data to be written to the underlying stream.
+      </summary>
+        </member>
+        <member name="M:ApplicationLogging.StreamWriter.WriteLine(System.String)">
+            <summary>
+        Writes a string followed by a line terminator to the text string or stream.
+      </summary><param name="value">The string to write. If value is null, only the line terminator is written. </param>
+        </member>
+        <member name="M:ApplicationLogging.StreamWriter.Dispose">
+            <summary>
+            Releases the unmanaged resources used by the StreamWriter.
+            </summary>
+        </member>
+        <member name="M:ApplicationLogging.StreamWriter.Dispose(System.Boolean)">
+            <summary>
+            Provides a method to free unmanaged resources used by this class.
+            </summary>
+            <param name="disposing">Whether the method is being called as part of an explicit Dispose routine, and hence whether managed resources should also be freed.</param>
+        </member>
+    </members>
+</doc>

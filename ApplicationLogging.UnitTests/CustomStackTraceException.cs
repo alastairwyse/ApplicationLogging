@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Alastair Wyse (http://www.oraclepermissiongenerator.net/methodinvocationremoting/)
+ * Copyright 2014 Alastair Wyse (https://github.com/alastairwyse/ApplicationLogging/)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,28 +15,16 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace ApplicationLoggingUnitTests
+namespace ApplicationLogging.UnitTests
 {
-    //******************************************************************************
-    //
-    // Class: CustomStackTraceException
-    //
-    //******************************************************************************
     /// <summary>
     /// Derives from System.Exception, and overrides the StackTrace property to return a fixed string for use in unit tests.
     /// </summary>
     class CustomStackTraceException : Exception
     {
-        //******************************************************************************
-        //
-        // Method: CustomStackTraceException (constructor)
-        //
-        //******************************************************************************
         /// <summary>
-        /// Initialises a new instance of the ApplicationLoggingUnitTests.CustomStackTraceException class.
+        /// Initialises a new instance of the ApplicationLogging.UnitTests.CustomStackTraceException class.
         /// </summary>
         /// <param name="message">The message that describes the error.</param>
         public CustomStackTraceException(string message)
@@ -51,7 +39,7 @@ namespace ApplicationLoggingUnitTests
         {
             get
             {
-                return @"   at ApplicationLoggingUnitTests.LogSuccessTests() in C:\MethodInvocationRemoting\C#\ApplicationLoggingUnitTests\FileApplicationLoggerTests.cs:line 123" + Environment.NewLine + @"   at ApplicationLoggingUnitTests.LogSuccessTests() in C:\MethodInvocationRemoting\C#\ApplicationLoggingUnitTests\FileApplicationLoggerTests.cs:line 456";
+                return @"   at ApplicationLogging.UnitTests.LogSuccessTests() in C:\Development\C#\ApplicationLogging\ApplicationLogging.UnitTests\FileApplicationLoggerTests.cs:line 123" + Environment.NewLine + @"   at ApplicationLoggingUnitTests.LogSuccessTests() in C:\Development\C#\ApplicationLogging\ApplicationLogging.UnitTests\FileApplicationLoggerTests.cs:line 456";
             }
         }
     }

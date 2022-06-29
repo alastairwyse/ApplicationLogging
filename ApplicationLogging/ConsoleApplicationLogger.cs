@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Alastair Wyse (http://www.oraclepermissiongenerator.net/methodinvocationremoting/)
+ * Copyright 2014 Alastair Wyse (https://github.com/alastairwyse/ApplicationLogging/)
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,26 +15,14 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ApplicationLogging
 {
-    //******************************************************************************
-    //
-    // Class: ConsoleApplicationLogger
-    //
-    //******************************************************************************
     /// <summary>
     /// Writes application log events and information to the console (standard output).
     /// </summary>
     public class ConsoleApplicationLogger : ApplicationLoggerBase, IApplicationLogger
     {
-        //------------------------------------------------------------------------------
-        //
-        // Method: ConsoleApplicationLogger (constructor)
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Initialises a new instance of the ApplicationLogging.ConsoleApplicationLogger class.
         /// </summary>
@@ -46,11 +34,6 @@ namespace ApplicationLogging
         {
         }
 
-        //------------------------------------------------------------------------------
-        //
-        // Method: ConsoleApplicationLogger (constructor)
-        //
-        //------------------------------------------------------------------------------
         /// <summary>
         /// Initialises a new instance of the ApplicationLogging.ConsoleApplicationLogger class.
         /// </summary>
