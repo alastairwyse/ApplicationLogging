@@ -5,7 +5,7 @@ ApplicationLogging provides interfaces and classes to allow simple logging from 
 
 The main benefit of ApplicationLogging is to provide an abstraction layer between the client application and the logging framework the application uses.  The logging framework can then be swapped simply by changing the implementation of interface IApplicationLogger.  This means that if/when your chosen logging framework stops being maintained or is no longer flavour of the month, the logging can be changed by updating constructor parameters and/or in dependency injection, rather than having to update potentially 1000's of lines of logging statements :smiley:.
 
-##### Links
+#### Links
 The documentation below was written for version 1.* of ApplicationLogging.  Minor implementation details may have changed in versions 2.0.0 and above, however the basic principles and use cases documented are still valid.
 
 A detailed sample implementation and use case...<br />
