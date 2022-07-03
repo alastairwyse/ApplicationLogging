@@ -13,7 +13,6 @@ A detailed sample implementation and use case...<br />
 
 Code documentation...<br />
 [http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.html](http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.html)<br />
-[http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.Adapters.html](http://www.alastairwyse.net/methodinvocationremoting/ndoc/~ApplicationLogging.Adapters.html)
 
 #### Release History
 
